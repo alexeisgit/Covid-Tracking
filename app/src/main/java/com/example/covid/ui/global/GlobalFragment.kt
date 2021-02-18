@@ -24,8 +24,19 @@ class GlobalFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
+        refreshData()
+
+        refreshButton.setOnClickListener {
+            refreshData()
+        }
+    }
+
+    private fun refreshData() {
         lifecycleScope.launch {
-            val globalInfo = RemoteDataSource.getGlobalInfo()
+            progressBar.visibility = View.VISIBLE
+            val globalInfo = RemoteDataSource.getGlobalInfo() //2 sec
+            progressBar.visibility = View.INVISIBLE
             casesTextView.text = globalInfo.cases.toString()
             deathsTextView.text = globalInfo.deaths.toString()
             recoveredTextView.text = globalInfo.recovered.toString()
