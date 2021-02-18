@@ -11,7 +11,7 @@ import kotlinx.android.synthetic.main.country_item.view.*
 class CountriesAdapter(val countries: List<CountryInfo>) : RecyclerView.Adapter<CountryViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): CountryViewHolder {
-        val view = LayoutInflater.from(parent.context).inflate(R.layout.country_item, null, false)
+        val view = LayoutInflater.from(parent.context).inflate(R.layout.country_item, parent, false)
         return CountryViewHolder(view)
     }
 
