@@ -5,10 +5,14 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.example.covid.R
+import com.example.covid.model.CountryExtraInfo
 import com.example.covid.model.CountryInfo
 import kotlinx.android.synthetic.main.country_item.view.*
 
-class CountriesAdapter(val countries: List<CountryInfo>) : RecyclerView.Adapter<CountryViewHolder>() {
+class CountriesAdapter(val countries: List<CountryInfo>, val listener: Listener) : RecyclerView.Adapter<CountryViewHolder>() {
+    interface Listener{
+        fun onCountryClick(id: String)
+    }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): CountryViewHolder {
         val view = LayoutInflater.from(parent.context).inflate(R.layout.country_item, null, false)
@@ -21,6 +25,10 @@ class CountriesAdapter(val countries: List<CountryInfo>) : RecyclerView.Adapter<
 
     override fun onBindViewHolder(holder: CountryViewHolder, position: Int) {
         val country = countries[position]
+        holder.itemView.setOnClickListener{
+            listener.onCountryClick(country.name)
+        }
+
         holder.bind(country)
     }
 

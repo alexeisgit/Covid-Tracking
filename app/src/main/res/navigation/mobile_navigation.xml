@@ -15,11 +15,24 @@
         android:id="@+id/navigation_dashboard"
         android:name="com.example.covid.ui.countries.CountriesFragment"
         android:label="@string/title_dashboard"
-        tools:layout="@layout/fragment_countries" />
+        tools:layout="@layout/fragment_countries" >
+        <action
+            android:id="@+id/actionFromCountriesListToCountryDetails"
+            app:destination="@id/countryDetailFragment" />
+    </fragment>
 
     <fragment
         android:id="@+id/navigation_notifications"
         android:name="com.example.covid.ui.map.MapFragment"
         android:label="@string/title_notifications"
         tools:layout="@layout/fragment_map" />
+    <fragment
+        android:id="@+id/countryDetailFragment"
+        android:name="com.example.covid.ui.countrydetails.CountryDetailFragment"
+        android:label="fragment_country_detail"
+        tools:layout="@layout/fragment_country_detail" >
+        <argument
+            android:name="countryId"
+            app:argType="string" />
+    </fragment>
 </navigation>

@@ -9,6 +9,7 @@ import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 import retrofit2.http.GET
 import retrofit2.http.Path
+import java.lang.Exception
 
 object RemoteDataSource {
     private interface CovidService {
@@ -27,6 +28,11 @@ object RemoteDataSource {
 
     private val covidAPI = retrofit.create(CovidService::class.java)
 
-    suspend fun getGlobalInfo() = covidAPI.getGlobalInfo()
-    suspend fun getCountriesInfo() = covidAPI.getCountriesInfo()
+    suspend fun getGlobalInfo(): GlobalInfo{
+        return covidAPI.getGlobalInfo()
+    }
+    suspend fun getCountriesInfo(): List<CountryInfo>{
+        val countriesList = covidAPI.getCountriesInfo()
+        return countriesList
+    }
 }

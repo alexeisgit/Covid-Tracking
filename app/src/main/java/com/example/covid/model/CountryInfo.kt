@@ -1,6 +1,7 @@
 package com.example.covid.model
 
 import com.google.gson.annotations.SerializedName
+import java.util.*
 
 data class CountryInfo(
     @SerializedName(value = "country")val name: String,

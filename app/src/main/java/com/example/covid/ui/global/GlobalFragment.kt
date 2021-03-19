@@ -5,17 +5,17 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
-import androidx.lifecycle.lifecycleScope
+import androidx.fragment.app.viewModels
 import com.example.covid.R
-import com.example.covid.datasource.RemoteDataSource
+import com.example.covid.databinding.FragmentGlobalBinding
 import com.example.covid.model.GlobalInfo
+import com.example.covid.ui.countries.CountriesAdapter
 import kotlinx.android.synthetic.main.fragment_global.*
-import kotlinx.coroutines.GlobalScope
-import kotlinx.coroutines.launch
 
-class GlobalFragment : Fragment(), GlobalInfoView {
+class GlobalFragment : Fragment() {
     //val presenter = GlobalDataPresenter(this)
-    lateinit var presenter: GlobalDataPresenter
+//    val viewModel = GlobalDataViewModel()
+    val viewModel: GlobalDataViewModel by viewModels()
     override fun onCreateView(
             inflater: LayoutInflater,
             container: ViewGroup?,
@@ -28,30 +28,41 @@ class GlobalFragment : Fragment(), GlobalInfoView {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        presenter = GlobalDataPresenter(this)
 
         refreshData()
 
-        refreshButton.setOnClickListener {
+/*        refreshButton.setOnClickListener {
             refreshData()
-        }
+        }*/
+        val binding = FragmentGlobalBinding.bind(view)
+        binding.lifecycleOwner = this
+        binding.viewModel = viewModel
+/*        viewModel.isLoadingLiveData.observeForever{
+            if (it == true)
+                showProgressBar()
+            else
+                hideProgressBar()
+        }*/
+        /*viewModel.globalInfoLiveData.observeForever{
+            showGlobalInfo(it)
+        }*/
     }
 
     private fun refreshData() {
-        presenter.refreshData()
+        viewModel.refreshData()
     }
 
-    override fun showProgressBar(){
+/*    fun showProgressBar(){
         progressBar.visibility = View.VISIBLE
     }
 
-    override fun hideProgressBar(){
+    fun hideProgressBar(){
         progressBar.visibility = View.INVISIBLE
-    }
+    }*/
 
-    override fun showGlobalInfo(globalInfo: GlobalInfo){
+/*    fun showGlobalInfo(globalInfo: GlobalInfo){
         casesTextView.text = globalInfo.cases.toString()
         deathsTextView.text = globalInfo.deaths.toString()
         recoveredTextView.text = globalInfo.recovered.toString()
-    }
+    }*/
 }
