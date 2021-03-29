@@ -5,17 +5,18 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.example.covid.R
-import com.example.covid.model.CountryExtraInfo
 import com.example.covid.model.CountryInfo
+import com.squareup.picasso.Picasso
 import kotlinx.android.synthetic.main.country_item.view.*
 
-class CountriesAdapter(val countries: List<CountryInfo>, val listener: Listener) : RecyclerView.Adapter<CountryViewHolder>() {
-    interface Listener{
-        fun onCountryClick(id: String)
-    }
+interface CountrieAdapterListener{
+    fun onCountryClick(id: String)
+}
+class CountriesAdapter(val countries: List<CountryInfo>, val listener: CountrieAdapterListener) : RecyclerView.Adapter<CountryViewHolder>() {
+
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): CountryViewHolder {
-        val view = LayoutInflater.from(parent.context).inflate(R.layout.country_item, null, false)
+        val view = LayoutInflater.from(parent.context).inflate(R.layout.country_item, parent, false)
         return CountryViewHolder(view)
     }
 
@@ -32,12 +33,21 @@ class CountriesAdapter(val countries: List<CountryInfo>, val listener: Listener)
         holder.bind(country)
     }
 
+    fun some212(){
+
+    }
+
+
 }
 
 class CountryViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView){
     fun bind(country: CountryInfo){
         itemView.countryNameTV.text = country.name
         itemView.casesTV.text = country.cases.toString()
-        //itemView.countryFlagIV() = country.countryInfo.flag
+        val flagReference = country.countryInfo.flag
+
+        Picasso.with(itemView.context)
+            .load(flagReference)
+            .into(itemView.flagImageView)
     }
 }

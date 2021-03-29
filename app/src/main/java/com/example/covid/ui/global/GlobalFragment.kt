@@ -61,7 +61,7 @@ class GlobalFragment : Fragment() {
     }*/
 
 /*    fun showGlobalInfo(globalInfo: GlobalInfo){
-        casesTextView.text = globalInfo.cases.toString()
+        casesTextView.text = "globalInfo.cases.toString()
         deathsTextView.text = globalInfo.deaths.toString()
         recoveredTextView.text = globalInfo.recovered.toString()
     }*/

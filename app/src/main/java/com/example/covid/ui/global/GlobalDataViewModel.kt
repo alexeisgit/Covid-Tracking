@@ -2,8 +2,10 @@ package com.example.covid.ui.global
 
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
+import androidx.lifecycle.viewModelScope
 import com.example.covid.datasource.RemoteDataSource
 import com.example.covid.model.GlobalInfo
+import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch
 import java.lang.Exception
@@ -15,7 +17,7 @@ class GlobalDataViewModel: ViewModel(){
     val errorLiveData = MutableLiveData<String>()
 
     fun refreshData(){
-        GlobalScope.launch {
+        viewModelScope.launch{
             isLoadingLiveData.value = true
             try {
                 val globalInfo = RemoteDataSource.getGlobalInfo() //2 sec
