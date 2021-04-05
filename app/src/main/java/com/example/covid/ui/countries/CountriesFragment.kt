@@ -46,7 +46,6 @@ class CountriesFragment : Fragment(), CountrieAdapterListener {
         return super.onOptionsItemSelected(item)
     }
 
-
     private fun refreshCountries() {
         lifecycleScope.launch {
             try {

@@ -8,6 +8,7 @@ data class CountryInfo(
     val cases: Int,
     val deaths: Int,
     val recovered: Int,
+    val deathsPerOneMillion: Double,
     val countryInfo: CountryExtraInfo
 )
 

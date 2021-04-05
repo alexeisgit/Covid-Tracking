@@ -32,12 +32,6 @@ class CountriesAdapter(val countries: List<CountryInfo>, val listener: CountrieA
 
         holder.bind(country)
     }
-
-    fun some212(){
-
-    }
-
-
 }
 
 class CountryViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView){

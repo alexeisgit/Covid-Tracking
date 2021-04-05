@@ -25,8 +25,6 @@ class GlobalDataViewModel: ViewModel(){
             }catch(e: Exception){
                 errorLiveData.value = "error while get global info: ${e.message}"
             }
-
-
             isLoadingLiveData.value = false
         }
     }

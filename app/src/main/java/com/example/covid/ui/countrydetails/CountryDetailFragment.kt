@@ -11,6 +11,8 @@ import androidx.navigation.fragment.navArgs
 import com.example.covid.R
 import com.example.covid.datasource.RemoteDataSource
 import com.example.covid.model.CountryInfo
+import com.squareup.picasso.Picasso
+import kotlinx.android.synthetic.main.country_item.view.*
 import kotlinx.android.synthetic.main.fragment_country_detail.*
 import kotlinx.coroutines.launch
 
@@ -39,6 +41,9 @@ class CountryDetailFragment : Fragment() {
             casesTV.text = country.cases.toString()
             deathsTV.text = country.deaths.toString()
             recoveredTV.text = country.recovered.toString()
+            Picasso.with(requireContext())
+                .load(country.countryInfo.flag)
+                .into(flagImageView)
 
         }
     }

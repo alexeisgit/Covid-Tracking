@@ -8,13 +8,13 @@
     <fragment
         android:id="@+id/navigation_home"
         android:name="com.example.covid.ui.global.GlobalFragment"
-        android:label="@string/title_home"
+        android:label="@string/title_global"
         tools:layout="@layout/fragment_global" />
 
     <fragment
         android:id="@+id/navigation_dashboard"
         android:name="com.example.covid.ui.countries.CountriesFragment"
-        android:label="@string/title_dashboard"
+        android:label="@string/title_countries"
         tools:layout="@layout/fragment_countries" >
         <action
             android:id="@+id/actionFromCountriesListToCountryDetails"
@@ -24,12 +24,12 @@
     <fragment
         android:id="@+id/navigation_notifications"
         android:name="com.example.covid.ui.map.MapFragment"
-        android:label="@string/title_notifications"
+        android:label="@string/title_map"
         tools:layout="@layout/fragment_map" />
     <fragment
         android:id="@+id/countryDetailFragment"
         android:name="com.example.covid.ui.countrydetails.CountryDetailFragment"
-        android:label="fragment_country_detail"
+        android:label="@string/title_country_details_fragment"
         tools:layout="@layout/fragment_country_detail" >
         <argument
             android:name="countryId"

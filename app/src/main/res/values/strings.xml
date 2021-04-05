@@ -1,8 +1,9 @@
 <resources>
     <string name="app_name">Covid</string>
-    <string name="title_home">Home</string>
-    <string name="title_dashboard">Dashboard</string>
-    <string name="title_notifications">Notifications</string>
+    <string name="title_global">Global</string>
+    <string name="title_countries">Countries</string>
+    <string name="title_map">Map</string>
+    <string name="title_country_details_fragment">Country details</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="deaths">deaths:</string>
