@@ -1,16 +1,20 @@
 package com.example.covid
 
 import android.os.Bundle
+import android.view.Menu
 import android.view.View
+import android.widget.Switch
 import android.widget.Toast
 import android.widget.ViewAnimator
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import androidx.appcompat.app.AppCompatActivity
+import androidx.appcompat.app.AppCompatDelegate
 import androidx.navigation.findNavController
 import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.setupActionBarWithNavController
 import androidx.navigation.ui.setupWithNavController
 import kotlinx.android.synthetic.main.activity_main.*
+import kotlinx.android.synthetic.main.fragment_global.*
 
 class MainActivity : AppCompatActivity() {
 
@@ -34,5 +38,23 @@ class MainActivity : AppCompatActivity() {
             else
                 navView.visibility = View.VISIBLE
         }
+    }
+
+    override fun onCreateOptionsMenu(menu: Menu?): Boolean {
+        menuInflater.inflate(R.menu.main_menu, menu)
+        val switchItem = menu?.findItem(R.id.app_bar_switch_theme)
+        val switchView = switchItem?.actionView?.findViewById(R.id.themeSwitch) as Switch
+        val currentMode = AppCompatDelegate.getDefaultNightMode()
+        switchView.isChecked = currentMode==AppCompatDelegate.MODE_NIGHT_YES
+
+        switchView.setOnCheckedChangeListener {_, value->
+            val mode = if (value == true)
+                AppCompatDelegate.MODE_NIGHT_YES
+            else
+                AppCompatDelegate.MODE_NIGHT_NO
+
+            AppCompatDelegate.setDefaultNightMode(mode)
+        }
+        return super.onCreateOptionsMenu(menu)
     }
 }
