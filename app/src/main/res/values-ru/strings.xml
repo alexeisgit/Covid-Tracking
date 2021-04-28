@@ -1,0 +1,11 @@
+<resources>
+    <string name="title_global">"Мир "</string>
+    <string name="title_countries">Страны</string>
+    <string name="title_map">Карта</string>
+    <string name="title_country_details_fragment">Подробно о стране</string>
+    <string name="deaths">смерти:</string>
+    <string name="recovered">выздоровления:</string>
+    <string name="cases">количество случаев:</string>
+    <string name="refresh_button_name">Обновить</string>
+    <string name="theme_switch_name">Ночная тема</string>
+</resources>
