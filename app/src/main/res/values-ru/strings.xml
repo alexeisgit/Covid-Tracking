@@ -7,5 +7,6 @@
     <string name="recovered">выздоровления:</string>
     <string name="cases">количество случаев:</string>
     <string name="refresh_button_name">Обновить</string>
-    <string name="theme_switch_name">Ночная тема</string>
+    <string name="theme_switch_name">Дневная/Ночная темы</string>
+    <string name="by_name_by_cases"> по Алфавиту/по Заболеваемости</string>
 </resources>

@@ -11,6 +11,7 @@ import androidx.navigation.fragment.navArgs
 import com.example.covid.R
 import com.example.covid.datasource.RemoteDataSource
 import com.example.covid.model.CountryInfo
+import com.example.covid.utils.decimalFromNumber
 import com.squareup.picasso.Picasso
 import kotlinx.android.synthetic.main.country_item.view.*
 import kotlinx.android.synthetic.main.fragment_country_detail.*
@@ -38,9 +39,9 @@ class CountryDetailFragment : Fragment() {
             val countries = RemoteDataSource.getCountriesInfo()
             val country = countries.find { it.name == id }!!
             nameTV.text = country.name
-            casesTV.text = country.cases.toString()
-            deathsTV.text = country.deaths.toString()
-            recoveredTV.text = country.recovered.toString()
+            casesTV.text = decimalFromNumber(country.cases)
+            deathsTV.text = decimalFromNumber(country.deaths)
+            recoveredTV.text = decimalFromNumber(country.recovered)
             Picasso.with(requireContext())
                 .load(country.countryInfo.flag)
                 .into(flagImageView)

@@ -1,5 +1,6 @@
 package com.example.covid.model
 
+import com.example.covid.utils.decimalFromNumber
 import com.google.gson.annotations.SerializedName
 import java.util.*
 

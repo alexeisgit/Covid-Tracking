@@ -4,11 +4,15 @@
     xmlns:android="http://schemas.android.com/apk/res/android">
 
     <item
-        android:id="@+id/app_bar_switch_theme"
+        android:enabled="true"
         android:title="@string/theme_switch_name"
+        android:visible="true"
+        app:showAsAction="always" />
+    <item
+        android:id="@+id/app_bar_switch_theme"
         android:visibility="visible"
         android:visible="true"
         app:actionLayout="@layout/switch_item"
-        app:showAsAction="always"
-        tools:visibility="visible" />
+        app:showAsAction="always|withText"
+        tools:visibility="visible" ></item>
 </menu>

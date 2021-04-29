@@ -8,5 +8,6 @@
     <string name="recovered">recovered:</string>
     <string name="cases">cases:</string>
     <string name="refresh_button_name">Refresh</string>
-    <string name="theme_switch_name">Night Mode</string>
+    <string name="theme_switch_name">Day/Night Mode</string>
+    <string name="by_name_by_cases">by Name/by Cases</string>
 </resources>

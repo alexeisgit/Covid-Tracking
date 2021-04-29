@@ -47,7 +47,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="32dp"
-            android:text="@{Integer.toString(viewModel.globalInfoLiveData.cases)}"
+            android:text="@{viewModel.globalInfoLiveData.casesFormatted}"
             app:layout_constraintStart_toEndOf="@+id/textView"
             app:layout_constraintTop_toTopOf="@+id/textView" />
 
@@ -55,7 +55,7 @@
             android:id="@+id/deathsTextView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@{Integer.toString(viewModel.globalInfoLiveData.deaths)}"
+            android:text="@{viewModel.globalInfoLiveData.deathsFormatted}"
             app:layout_constraintStart_toStartOf="@+id/casesTextView"
             app:layout_constraintTop_toTopOf="@+id/textView2" />
 
@@ -63,7 +63,7 @@
             android:id="@+id/recoveredTextView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@{Integer.toString(viewModel.globalInfoLiveData.recovered)}"
+            android:text="@{viewModel.globalInfoLiveData.recoveredFormatted}"
             app:layout_constraintStart_toStartOf="@+id/deathsTextView"
             app:layout_constraintTop_toTopOf="@+id/textView3" />
 
