@@ -11,7 +11,8 @@ Navigating between 3 screens user is able is able to do the following:
 
  Sort countries list by the number of cases or in alphabatical order
 
- ![Demo](https://user-images.githubusercontent.com/22808584/116963133-d37bb280-ac5c-11eb-9bf6-9a11d65b9e62.gif)
+ ![Country Sort](https://user-images.githubusercontent.com/22808584/117096877-1c943b00-ad1f-11eb-89e8-0d0ab68b3031.gif)
+
  
    Select detailed information by country. 
    
