@@ -7,6 +7,7 @@ import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
+import com.example.covid.CovidApp
 import com.example.covid.R
 import com.example.covid.datasource.DataSource
 import com.example.covid.data.CountryInfo
@@ -19,6 +20,7 @@ import java.lang.Exception
 class CountriesFragment : Fragment(), CountrieAdapterListener {
     var countries: List<CountryInfo> = emptyList()
     var filterText: String = ""
+    val dataSource: DataSource = CovidApp.dataSource
     override fun onCreateView(
             inflater: LayoutInflater,
             container: ViewGroup?,
@@ -84,7 +86,7 @@ class CountriesFragment : Fragment(), CountrieAdapterListener {
         lifecycleScope.launch {
             try {
                 progressBar.visibility = View.VISIBLE
-                countries = RemoteDataSource.getCountriesInfo()
+                countries = dataSource.getCountriesInfo()
                 filterAndSortAndDisplay()
             } catch (e: Exception) {
                 Toast.makeText(requireContext(), "error while get countries info: ${e.message}", Toast.LENGTH_LONG).show()
