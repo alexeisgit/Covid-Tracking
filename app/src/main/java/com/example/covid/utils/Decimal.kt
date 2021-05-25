@@ -1,6 +1,7 @@
 package com.example.covid.utils
 
-fun decimalFromNumber(number: Int, delimeter: String = ","): String{
+fun decimalFromNumber(number: Int, delimeter: String? = ","): String{
+
     val text = number.toString() //"456132" "456 132"
                                  // 012345
     var result = ""

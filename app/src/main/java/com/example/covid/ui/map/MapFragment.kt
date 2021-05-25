@@ -7,9 +7,9 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.lifecycle.lifecycleScope
+import com.example.covid.CovidApp
 import com.example.covid.R
-import com.example.covid.datasource.RemoteDataSource
-import com.example.covid.model.CountryInfo
+import com.example.covid.data.CountryInfo
 import com.google.android.gms.maps.CameraUpdateFactory
 import com.google.android.gms.maps.GoogleMap
 
@@ -35,7 +35,7 @@ class MapFragment : Fragment() {
 
 
         lifecycleScope.launch {
-            val countries = RemoteDataSource.getCountriesInfo()
+            val countries = CovidApp.dataSource.getCountriesInfo()
 
 /*            val groups = createGroups(countries)
             createMarkers(groups, googleMap)*/
@@ -65,7 +65,7 @@ class MapFragment : Fragment() {
 
     private fun getGroup(minDeaths: Double, maxDeaths: Double, country: CountryInfo): Int {
         val groupNumber = when {
-            country.deathsPerOneMillion >= minDeaths && country.deathsPerOneMillion <= maxDeaths / 3 -> 0
+            country.deathsPerOneMillion <= maxDeaths / 3 -> 0
             country.deathsPerOneMillion > maxDeaths / 3 && country.deathsPerOneMillion <= 2 * maxDeaths / 3 -> 1
             else -> 2
         }

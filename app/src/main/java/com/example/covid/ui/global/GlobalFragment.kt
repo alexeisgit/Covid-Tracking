@@ -4,19 +4,16 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Toast
-import androidx.appcompat.app.AppCompatDelegate
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import com.example.covid.R
+import com.example.covid.data.GlobalInfo
 import com.example.covid.databinding.FragmentGlobalBinding
-import com.example.covid.model.GlobalInfo
-import com.example.covid.ui.countries.CountriesAdapter
 import kotlinx.android.synthetic.main.fragment_global.*
 
 class GlobalFragment : Fragment() {
     //val presenter = GlobalDataPresenter(this)
-//    val viewModel = GlobalDataViewModel()
+    //val viewModel = GlobalDataViewModel()
     val viewModel: GlobalDataViewModel by viewModels()
     override fun onCreateView(
             inflater: LayoutInflater,
@@ -44,8 +41,8 @@ class GlobalFragment : Fragment() {
                 showProgressBar()
             else
                 hideProgressBar()
-        }*/
-        /*viewModel.globalInfoLiveData.observeForever{
+        }
+        viewModel.globalInfoLiveData.observeForever{
             showGlobalInfo(it)
         }*/
 
@@ -55,16 +52,16 @@ class GlobalFragment : Fragment() {
     private fun refreshData() {
         viewModel.refreshData()
     }
-
-/*    fun showProgressBar(){
+/*
+    fun showProgressBar(){
         progressBar.visibility = View.VISIBLE
     }
 
     fun hideProgressBar(){
         progressBar.visibility = View.INVISIBLE
-    }*/
+    }
 
-/*    fun showGlobalInfo(globalInfo: GlobalInfo){
+    fun showGlobalInfo(globalInfo: GlobalInfo){
         casesTextView.text = "globalInfo.cases.toString()
         deathsTextView.text = globalInfo.deaths.toString()
         recoveredTextView.text = globalInfo.recovered.toString()

@@ -5,9 +5,10 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.example.covid.R
-import com.example.covid.model.CountryInfo
+import com.example.covid.data.CountryInfo
 import com.squareup.picasso.Picasso
 import kotlinx.android.synthetic.main.country_item.view.*
+import java.lang.Exception
 
 interface CountrieAdapterListener{
     fun onCountryClick(id: String)
@@ -40,8 +41,13 @@ class CountryViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView){
         itemView.casesTV.text = country.cases.toString()
         val flagReference = country.countryInfo.flag
 
-        Picasso.with(itemView.context)
-            .load(flagReference)
-            .into(itemView.flagImageView)
+        try {
+            Picasso.with(itemView.context)
+                    .load(flagReference)
+                    .into(itemView.flagImageView)
+        }catch (e: Exception){
+
+        }
+
     }
 }

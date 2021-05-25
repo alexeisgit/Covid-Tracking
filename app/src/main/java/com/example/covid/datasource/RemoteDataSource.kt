@@ -1,16 +1,11 @@
 package com.example.covid.datasource
 
-import com.example.covid.model.CountryInfo
-import com.example.covid.model.GlobalInfo
-import kotlinx.coroutines.GlobalScope
-import kotlinx.coroutines.launch
-import retrofit2.Call
+import com.example.covid.data.CountryExtraInfo
+import com.example.covid.data.CountryInfo
+import com.example.covid.data.GlobalInfo
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 import retrofit2.http.GET
-import retrofit2.http.Headers
-import retrofit2.http.Path
-import java.lang.Exception
 
 object RemoteDataSource {
     private interface CovidService {

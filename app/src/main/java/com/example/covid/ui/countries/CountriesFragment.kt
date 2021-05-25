@@ -8,8 +8,9 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
 import com.example.covid.R
-import com.example.covid.datasource.RemoteDataSource
-import com.example.covid.model.CountryInfo
+import com.example.covid.datasource.DataSource
+import com.example.covid.data.CountryInfo
+import com.example.covid.datasource.FakeDataSource
 import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.fragment_countries.*
 import kotlinx.coroutines.launch
